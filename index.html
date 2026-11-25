@@ -126,7 +126,7 @@ function guideScreen({kicker='Guided PM',title,copy='',choices=[],back=null,prog
 function openGuide(){guideState={eid:null,rule:null};if(!guideDialog.open)guideDialog.showModal();showGuideStart()}
 function showGuideStart(){guideScreen({kicker:'PM Checklist Assistant',title:'How would you like to begin?',copy:'<p>Browse the full equipment list, or answer a few questions to find the appropriate checklist.</p>',progress:10,choices:[
  {label:'Browse All Equipment',description:'Close this window and return to the complete equipment list.',action:()=>{guideDialog.close();guideNotice=null;if(location.hash)location.hash='';else render()}},
- {label:'Use Guided PM',description:'Select the equipment and follow the PM decision path.',tone:'primary',action:showGuideEquipment}
+ {label:'PM Assistant',description:'Select the equipment and follow the PM decision path.',tone:'primary',action:showGuideEquipment}
  ]})}
 function showGuideEquipment(){guideScreen({kicker:'Step 1 of 4',title:'What equipment requires PM?',copy:'<p>Select the equipment category you are working on.</p>',progress:25,back:showGuideStart,choices:equipment.map(e=>({label:e.title,description:e.sub,action:()=>selectGuideEquipment(e.id)}))})}
 function selectGuideEquipment(eid){
